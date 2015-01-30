@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>zhouxiaoping blog</title>
+  <title>垂直左右居中的几种办法 | zhouxiaoping blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhouxiaoping blog">
-<meta property="og:url" content="http://www.zhouxiaoping.cc/">
+  <meta name="description" content="3种办法
+123456789101112131415161718192021222324252627282930//1. first 已知宽高，使用margin负值，兼容性好div {    width: 200px;    height:  400px;    position: absolute;    top: 50%;    left: 50%;    margin-top: -200px">
+<meta property="og:type" content="article">
+<meta property="og:title" content="垂直左右居中的几种办法">
+<meta property="og:url" content="http://www.zhouxiaoping.cc/2015/01/30/second/">
 <meta property="og:site_name" content="zhouxiaoping blog">
-<meta property="og:description">
+<meta property="og:description" content="3种办法
+123456789101112131415161718192021222324252627282930//1. first 已知宽高，使用margin负值，兼容性好div {    width: 200px;    height:  400px;    position: absolute;    top: 50%;    left: 50%;    margin-top: -200px">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhouxiaoping blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="垂直左右居中的几种办法">
+<meta name="twitter:description" content="3种办法
+123456789101112131415161718192021222324252627282930//1. first 已知宽高，使用margin负值，兼容性好div {    width: 200px;    height:  400px;    position: absolute;    top: 50%;    left: 50%;    margin-top: -200px">
 
   
     <link rel="alternative" href="/atom.xml" title="zhouxiaoping blog" type="application/atom+xml">
@@ -61,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-second" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-second" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/01/30/second/" class="article-date">
   <time datetime="2015-01-30T03:11:16.000Z" itemprop="datePublished">1月 30 2015</time>
@@ -76,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/30/second/">垂直左右居中的几种办法</a>
+    <h1 class="article-title" itemprop="name">
+      垂直左右居中的几种办法
     </h1>
   
 
@@ -129,85 +130,20 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/29/first/" class="article-date">
-  <time datetime="2015-01-29T04:23:55.000Z" itemprop="datePublished">1月 29 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/29/first/">奇怪的&quot;==&quot;号</a>
-    </h1>
+    <a href="/2015/01/29/first/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">奇怪的&quot;==&quot;号</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="奇怪的现象">奇怪的现象</h3>
-<p>“//“后面是回调值</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">" "</span> == <span class="literal">false</span>  //<span class="literal">true</span></div><div class="line"><span class="string">""</span>  == <span class="literal">false</span>  //<span class="literal">true</span></div><div class="line"><span class="string">" "</span> == <span class="string">""</span>     //<span class="literal">false</span></div><div class="line"></div><div class="line">[]  == <span class="literal">false</span>  //<span class="literal">true</span></div><div class="line">![] == <span class="literal">false</span>  //<span class="literal">true</span></div></pre></td></tr></table></figure>
-
-<p>为什么空白字符串和空字符串都’等于’true，但又不相等呢？<br>为什么空数组’等于’false，但空数组的反值也’等于’false呢？</p>
-<h3 id="数据类型">数据类型</h3>
-<ul>
-<li>原始类型(primitive type): undefined,null,boolean,number,string</li>
-<li>对象类型(object type): array,function</li>
-</ul>
-<h3 id="“==”使用原则">“==”使用原则</h3>
-<ul>
-<li><strong>类型相同时</strong>:<br>  使用严格相等”===”进行比较</li>
-<li><strong>类型不同时</strong>:<ol>
-<li>如果一个值是null,另一个是undefined,则相等;</li>
-<li>如果一个是string，一个是number，则转化为数字比较;</li>
-<li>如果其中有boolean值，则先讲Boolean值转化为数字;</li>
-<li>如果一个是对象，一个是字符串/数字，将对象先通过valueOf()后通过toString()转化为原始值，再尝试比较(Date日期对象将仅调用toString())</li>
-</ol>
-</li>
-<li><strong>tips</strong>:<ul>
-<li>NaN不和任何值相等，包括它自己;</li>
-<li>typeOf(null) = ‘object’, 所以null按对象处理,但不具备toString,valueOf方法，所以null不和string, number,boolean相等;</li>
-<li>undefined与string,number,boolean相比时，undefined会转化为数字，即NaN,所以不相等</li>
-<li>undefined,null,0,-0,NaN,””这6种原始类型转化成boolean时都为false</li>
-</ul>
-</li>
-</ul>
-<h3 id="现象的背后">现象的背后</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">" "</span> == <span class="constant">false</span>  //<span class="constant">true</span>    字符串和布尔值，布尔值与字符串都转化为数字 <span class="number">0</span> == <span class="number">0</span></div><div class="line"><span class="string">""</span>  == <span class="constant">false</span>  //<span class="constant">true</span>    同上</div><div class="line"><span class="string">" "</span> == <span class="string">""</span>     //<span class="constant">false</span>   同为字符串，使用严格相等，明显不相等</div><div class="line"></div><div class="line">[]  == <span class="constant">false</span>  //<span class="constant">true</span>    数组为对象，<span class="constant">false</span>转化为数字<span class="number">0</span>，使用规则<span class="number">4</span>，[].<span class="built_in">toString</span>() = <span class="number">0</span>,成立</div><div class="line">![] == <span class="constant">false</span>  //<span class="constant">true</span>    ![],!将数组隐式包装成boolean值，即Boolean([]),数组也是对象，对象的布尔值都是<span class="constant">true</span></div></pre></td></tr></table></figure>
-
-<p>由此类推</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="number">0</span>] == <span class="literal">false</span> <span class="regexp">//</span> <span class="literal">true</span><span class="function">    =&gt;</span> <span class="number">0</span> == <span class="number">0</span></div><div class="line">[<span class="number">1</span>] == <span class="literal">true</span>  <span class="regexp">//</span> <span class="literal">true</span><span class="function">    =&gt;</span> <span class="number">1</span> == <span class="number">1</span></div><div class="line">[<span class="number">1</span>,<span class="number">2</span>] == <span class="string">'1,2'</span> <span class="regexp">//</span> <span class="literal">true</span><span class="function">  =&gt;</span> <span class="string">'1,2'</span> == <span class="string">'1,2'</span></div></pre></td></tr></table></figure>
-
-<h3 id="结语">结语</h3>
-<p>“==”会造成类型转化，情况较为复杂，一般情况下推荐使用”===”严格相等。<br>下次见！！！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.zhouxiaoping.cc/2015/01/29/first/" data-id="88pbodkbux1hcnkd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
-
-  
-  
 </section>
         
           <aside id="sidebar">
