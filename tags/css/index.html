@@ -63,6 +63,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-css-reset" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/04/css-reset/" class="article-date">
+  <time datetime="2015-05-04T03:28:32.000Z" itemprop="datePublished">5月 4 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/04/css-reset/">css-reset</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="css-reset出现原因">css-reset出现原因</h3>
+<p>css-reset出现的原因在于不同浏览器之间对于某些原生控件默认的margin,padding值不相同，所以重置为统一值，便于css的编写</p>
+<h3 id="如何css-reset">如何css-reset</h3>
+<p>css-reset从最初做法（如下）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>这样的好处是方便快捷，但是给每个元素都加上了，使代码变得非常臃肿，相关的博客对它的介绍也比较多，在此只做个总结和纪录。<br>在chrome上测试,分别列出拥有margin和padding的元素</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">margin</span>: <span class="string">body,dl,dd, ul,ol,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote</span></div><div class="line"><span class="attribute">padding</span>: <span class="string">ul,ol,fieldset,legend,input,button,textarea</span></div></pre></td></tr></table></figure>
+
+<p>由上可以看出，有margin的一般是有特殊含义的块元素，有padding的一般是列表和文本控件。所以理论上只需要重置对应的元素就足够了</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">body</span>,<span class="tag">dl</span>,<span class="tag">dd</span>, <span class="tag">ul</span>,<span class="tag">ol</span>,<span class="tag">h1</span>,<span class="tag">h2</span>,<span class="tag">h3</span>,<span class="tag">h4</span>,<span class="tag">h5</span>,<span class="tag">h6</span>,<span class="tag">pre</span>,<span class="tag">form</span>,<span class="tag">fieldset</span>,<span class="tag">p</span>,<span class="tag">blockquote</span> <span class="rules">{ <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="tag">ul</span>,<span class="tag">ol</span>,<span class="tag">fieldset</span>,<span class="tag">legend</span>,<span class="tag">input</span>,<span class="tag">button</span>,<span class="tag">textarea</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;<span class="rule">}</span></span></div></pre></td></tr></table></figure>
+
+<p>当然，对于大部分中小网站来说，其实很多元素是从来都不会用到的，所以可以做以下简化，根据需要去添加</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">body</span>,<span class="tag">form</span>,<span class="tag">p</span> <span class="rules">{ <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="tag">ul</span>,<span class="tag">ol</span> <span class="rules">{ <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;<span class="rule">}</span></span></div></pre></td></tr></table></figure>
+
+<h3 id="css-reset建议">css-reset建议</h3>
+<ul>
+<li>css-reset的一些相关插件：reset.css,normalize.css；</li>
+<li>css-reset只是起到一个重置作用，除了body的margin一定要去掉外，其他的其实都可有可无，只要前端工程师知道哪些元素用于默认的margin，padding就可以完全不用使用；</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhouxiaoping.cc/2015/05/04/css-reset/" data-id="n6uv719lhi0o4iqv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-second" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/01/30/second/" class="article-date">
@@ -144,7 +202,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -153,7 +211,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/css/" style="font-size: 20.00px;">css</a><a href="/tags/deploy/" style="font-size: 10.00px;">deploy</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/z-deploy/" style="font-size: 10.00px;">z-deploy</a><a href="/tags/zero-deploy/" style="font-size: 10.00px;">zero-deploy</a>
+      <a href="/tags/css/" style="font-size: 20.00px;">css</a><a href="/tags/deploy/" style="font-size: 10.00px;">deploy</a><a href="/tags/javascript/" style="font-size: 15.00px;">javascript</a><a href="/tags/z-deploy/" style="font-size: 10.00px;">z-deploy</a><a href="/tags/zero-deploy/" style="font-size: 10.00px;">zero-deploy</a>
     </div>
   </div>
 
@@ -162,7 +220,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -172,6 +230,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/05/04/css-reset/">css-reset</a>
+          </li>
         
           <li>
             <a href="/2015/01/30/second/">垂直左右居中的几种办法</a>
