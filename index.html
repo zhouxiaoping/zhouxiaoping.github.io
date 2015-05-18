@@ -63,6 +63,79 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vertical-align详解-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/18/vertical-align详解-1/" class="article-date">
+  <time datetime="2015-05-18T02:30:38.000Z" itemprop="datePublished">5月 18 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/18/vertical-align详解-1/">vertical-align详解(1)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="背景知识">背景知识</h3>
+<p><strong> 行内元素基本术语 </strong></p>
+<ul>
+<li><strong>匿名文本(anonymous text)</strong>：所有未包含在行内元素的字符串，空格也是匿名文本的一部分；</li>
+<li><strong>em框</strong>：em框在字体中定义，也成为字符框(character box)，实际的字形可能比它的em框更高或者更矮，font-size = em-height</li>
+<li><strong>内容区</strong>：非替换元素中，内容区是元素中各字符的em框串在一起构成的框。替换元素中，内容区就是元素的固有高度加上可能存在的margin,border, padding；</li>
+<li><strong>行间距(leading)</strong>：是font-size和line-height的差值，这个值分为2部分，分别应用到内容区的顶部和底部，这2部分成为半间距(half-leading)，行间距只应用于非替换元素，行间距也可以为负数；</li>
+<li><strong>行内框</strong>：这个框通过向内容区增加行间距来描述。对于非替换元素，行内框的告诉刚好等于line-height的值。对于替换元素，行内框的高度恰好等于内容区的高度，因为行间距不应用到替换元素；</li>
+<li><strong>行框</strong>：包含该行中出现的行内框的最高点和最低点的最小框，也就是最高行内框的上边界到最低行内框的下边界。<br><img src="/img/em-box.png" alt="em框"><br>如图em框，font-size = em-height</li>
+</ul>
+<p><img src="/img/inline-box.png" alt="行内框"></p>
+<p><strong> 有用的概念 </strong></p>
+<ul>
+<li>内容区类似块级元素的内容框；</li>
+<li>行内元素的背景应用于内容区及其内边距；</li>
+<li>行内元素的边框要包围内容区及所有内边距和边框；</li>
+<li>非替换元素的内边距，边框，外边距对行内元素没有垂直效果，他们不会影响元素行内框的高度；</li>
+<li>替换元素的外边距和边框会影响该元素行内框的高度。</li>
+</ul>
+<p>参考资料：css权威指南</p>
+<p><strong> 字体常识 </strong><br><img src="/img/font-lines.png" alt="字体详解图"></p>
+<ul>
+<li>baseline: 基线，即a,c,z,x等小写字母的底边线，如图中3</li>
+<li>ex = x-height = baseline - mean-line ，简而言之就是小写英文字符x的高度，如图中10</li>
+</ul>
+<h3 id="vertical-align属性详解">vertical-align属性详解</h3>
+<p><strong>baseline:</strong><br>    默认的对齐样式，将元素行内框的基线和包含该元素的行框的基线对齐。如果元素没有基线，将元素margin-bottom的底部和包含该元素的行框的基线对齐。<br>    <img src="/img/baseline-align.png" alt="baseline"><br>    引用自<a href="http://www.w3.org/TR/CSS2/visudet.html#leading" target="_blank" rel="external">www.w3.org资料</a><br>    <strong>这段的意思是，一个inline-block的元素的基线是它在在正常文档流里的最后一个inline元素决定，除非它没有正常文档流的行内元素，或者它的overflow属性不是visible，这种情况下，它的基线是margin-bottom的底部。</strong><br>    这种情况会在下次进行讨论。    </p>
+<p><strong>top:</strong><br>    将元素行内框的顶端与包含该元素的行框的顶端对齐。</p>
+<p><strong>bottom:</strong><br>    将元素行内框的底端与包含该元素的行框的底端对齐。</p>
+<p><strong>text-top:</strong><br>    将元素行内框的顶端与父元素内容区的顶端对齐。</p>
+<p><strong>text-bottom:</strong><br>    将元素行内框的底端与父元素内容区的底端对齐。</p>
+<p><strong>middle:</strong><br>    将元素行内框的垂直中点与父元素基线上0.5ex处的一点对齐。</p>
+<p><strong>super:</strong><br>    将元素的内容区和行内框上移，上移动的距离由用户代理决定。</p>
+<p><strong>sub:</strong><br>    和super相同，只是动作为下移。</p>
+<p><strong>百分比(persentage %):</strong><br>    百分比数值相对于当前元素的line-height计算，正百分比会使元素的基线相对于父元素的基线升高，负百分比会降低，例如line-height为20px的元素，vertical-align: 50%,将会使其基线升高10px.</p>
+<p><strong>数值:</strong><br>    类似于计算后的百分比值, 0 即 baseline.</p>
+<p>vertical-align涉及的知识比较多，所以这次只介绍相关的基本知识，下一次来探讨下详细的使用，再会！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zhouxiaoping.cc/2015/05/18/vertical-align详解-1/" data-id="mxkwpar5txdwpx7e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-css-reset" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/05/04/css-reset/" class="article-date">
@@ -295,7 +368,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -305,6 +378,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/05/18/vertical-align详解-1/">vertical-align详解(1)</a>
+          </li>
         
           <li>
             <a href="/2015/05/04/css-reset/">css-reset</a>
